@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tracking</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #ffcc00;
+}
+
+.header {
+    background: #d40511;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #d40511;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.box {
+    background: #f2f2f2;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.progress {
+    height: 20px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.bar {
+    height: 100%;
+    width: 60%;
+    background: red;
+    text-align: center;
+    color: white;
+    line-height: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Express Tracking</h1>
+    <p>Fast. Reliable. Worldwide.</p>
+</div>
+
+<div class="container">
+
+<h2>Enter Tracking Number</h2>
+
+<input type="text" id="code" placeholder="Enter code">
+<button onclick="track()">Track</button>
+
+<div id="result" style="display:none;">
+
+<div class="box">
+    <b>FROM</b><br>
+    Malaysia 🇲🇾
+</div>
+
+<div class="box">
+    <b>TO</b><br>
+    China 🇨🇳
+</div>
+
+<div class="box">
+    <b>STATUS</b><br>
+    Delivery in progress
+</div>
+
+<div class="box">
+    <b>Tracking Number:</b> <span id="showCode"></span>
+</div>
+
+<div class="progress">
+    <div class="bar">60%</div>
+</div>
+
+<p>Malaysia → Transit → China</p>
+
+</div>
+
+</div>
+
+<script>
+function track() {
+    let code = document.getElementById("code").value;
+
+    if(code === "") {
+        alert("Enter a tracking code");
+    } else {
+        document.getElementById("result").style.display = "block";
+        document.getElementById("showCode").innerText = code;
+    }
+}
+</script>
+
+</body>
+</html>
